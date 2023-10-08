@@ -48,40 +48,40 @@ const Profile = () => {
                 </svg>
             </Link>
         </div>
-        <ul className='text-center text-xl sm:mx-52'>
+        <ul className='text-center text-xl sm:mx-52 mx-2'>
             <li className='flex justify-center my-2'><Image src={character.image} alt={character.name} width={250} height={250} className='rounded [box-shadow:_1px_1px_1px_#A9D729,_0_0_0.8em_#A9D729,_0_0_0.3em_#A9D729]'/></li>
             <div className='grid grid-cols-1'>
             <li className='my-2 text-center'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Name: </div>
-                <div className=' '>{character.name}</div>
+                <div>{character.name}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Gender: </div>
-                <div className=' '>{character.gender}</div>
+                <div>{character.gender}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Species: </div>
-                <div className=' '>{character.species}</div>
+                <div>{character.species}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Status: </div>
-                <div className=''>{character.status}</div>
+                <div>{character.status}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Type: </div>
-                <div className=' '>{character.type}</div>
+                <div>{character.type}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Location: </div>
-                <div className=''>{character.location.name}</div>
+                <div>{character.location.name}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Origin: </div>
-                <div className=''>{character.origin.name}</div>
+                <div>{character.origin.name}</div>
             </li>
             <li className='my-2'>
                 <div className='[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] text-rick-blue'>Episodes: </div>
-                <div className=''>{epNumbers.join(", ")}</div>
+                <div>{epNumbers.join(", ")}</div>
             </li>
             </div>
         </ul>
