@@ -1,37 +1,18 @@
 "use client"
 import Image from 'next/image';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getCharacters, Character, Info, ApiResponse } from 'rickmortyapi';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { ArrowSmallLeftIcon } from '@heroicons/react/24/solid';
 
 export default function CharacterTable(): JSX.Element {
     const [characters, setCharacters] = useState<Character[]>(); //get all characters
     const [page, setPage] = useState<number>(1); //set the current page
     const [totalPages, setTotalPages] = useState<number>(); //set the total number of page
-    const searchParams = useSearchParams()!;
     const [searchChars, setSearchChars] = useState("");
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchChars(event.target.value);
     };
-
-    /**
-     * the @useCallback is only changes when the dependencies change,
-     * so it does not change on every render on its own
-     * this one only changes when searchParams changed
-     * @function createQueryString helps to create the rigth format for the url (profile/[id]"?id"=id)
-     */
-    const createQueryString = useCallback(
-        (name: string, value: string) => {
-          const params = new URLSearchParams(searchParams)
-          params.set(name, value)
-     
-          return params.toString()
-        },
-        [searchParams]
-    )
     
     /**
      * @function useEffect is used to run code whenever the page state changes
@@ -76,7 +57,7 @@ export default function CharacterTable(): JSX.Element {
                             </td>
                             <td>
                                 {/* search is used to pass query parameters */}
-                                <Link href={{ pathname: `/profile/${character.id}`, search: createQueryString('id', character.id.toString()) }} className='hover:text-rick-blue hover:[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] hover:duration-100'>
+                                <Link href={`/profile/${character.id}`} className='hover:text-rick-blue hover:[text-shadow:_0.5px_0.5px_0.5px_#A9D729,_0_0_0.5em_#A9D729,_0_0_0.1em_#A9D729] hover:duration-100'>
                                     {character.name}
                                 </Link>
                             </td>

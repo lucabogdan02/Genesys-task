@@ -5,9 +5,10 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { Character, getCharacter } from 'rickmortyapi';
 
-const Profile = () => {
+//get id from url
+const Profile = ({ params }: { params: { id: string } }) => {
     const searchParams = useSearchParams();
-    const id = searchParams.get("id") as string
+    const id = params.id
     const [character, setCharacter] = useState<Character>()
 
      useEffect(() => {
@@ -24,7 +25,7 @@ const Profile = () => {
             fetchCharData();
         }
 
-    }, [id]);
+    });
     
     if (!character) {
         return <div className='text-center'>Loading...</div>;
